@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  /* @apply hover:text-primary bu kod çalışmadığı için manuel atadım. */
+  --text-primary-hex: 346.8 77.2% 49.8%;
+
+}
+
+/* Font Size */
+/* :root {
+  --text-fs-body: 16px;
+}
+
+*:not(.myTitleHeader):not(.myTitleHeader i) {
+  font-size: var(--text-fs-body) !important;
+  -webkit-transition: font-size .5s ease;
+  -moz-transition: font-size .5s ease;
+  -o-transition: font-size .5s ease;
+  transition: font-size .5s ease;
+} */
+/* //Font Size */
 
 @layer base {
   :root {
@@ -57,6 +78,28 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground
   }
+
+  .myTitleHeader i {
+    @apply text-primary underline font-playfairdisplay
+  }
+
+  a {
+    @apply underline decoration-primary transition underline-offset-2
+  }
+
+  ::selection {
+    @apply text-primary bg-white
+  }
+}
+
+
+a:hover {
+  color: hsl(var(--text-primary-hex));
+}
+
+.socialLinkItemSize {
+  width: 1.8rem;
+  height: 1.8rem;
 }

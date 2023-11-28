@@ -1,8 +1,7 @@
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/ThemeProvider"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import './custom.css'
 import Header from "@/components/Header"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ minWidth: "100%", minHeight: "100%" }}>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -27,7 +26,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <main className="py-10">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

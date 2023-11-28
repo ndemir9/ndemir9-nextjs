@@ -1,12 +1,8 @@
+import { INavMenuItemProps } from '@/modals/NavMenuModal'
 import Link from 'next/link'
 import React from 'react'
 
-interface IProps {
-    href: string,
-    name: string
-}
-
-const NavMenuItem = ({ href, name }: IProps) => {
+const NavMenuItem = ({ href, name }: INavMenuItemProps) => {
     return (
         <li>
             <Link href={href}>{name}</Link>

@@ -2,18 +2,17 @@ import React from 'react'
 import NavMenuItem from './NavMenuItem'
 import { DataNavMenus } from "@/utils/constants"
 
-interface DataNavMenusProps {
-    id: string,
-    href: string,
-    name: string,
-}
 
 const NavMenu = () => {
+
+    let _navMenus = DataNavMenus || null;
+    if (_navMenus.length <= 0) return <></>
+
     return (
         <nav className='container'>
             <ul>
                 {
-                    DataNavMenus.map((item: DataNavMenusProps) => (
+                    _navMenus.map((item) => (
                         <NavMenuItem key={item.id} href={item.href} name={item.name} />
                     ))
                 }

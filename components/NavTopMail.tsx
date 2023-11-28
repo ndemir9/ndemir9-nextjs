@@ -2,7 +2,11 @@ import React from 'react'
 import { DataMyMail } from '@/utils/constants'
 
 const NavTopMail = () => {
-    return <a className='text-sm hover:text-[hsl(var(--primary))] transition' href={`"mailto:${DataMyMail}`}>{DataMyMail}</a>
+
+    let _navMyMail = DataMyMail || null;
+    if (_navMyMail.length <= 0) return <></>
+
+    return <a className='text-sm' href={`"mailto:${_navMyMail}`}>{_navMyMail}</a>
 }
 
 export default NavTopMail
