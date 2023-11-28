@@ -12,7 +12,7 @@ import { Button } from './ui/button'
 
 const CardItem = () => {
     return (
-        <Card>
+        <Card className='defaultShadow'>
             <CardHeader>
                 <div className='relative w-[100%] h-[200px] mb-4'>
                     <Image

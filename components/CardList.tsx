@@ -3,7 +3,7 @@ import CardItem from './CardItem'
 
 const CardList = () => {
     return (
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='grid lg:grid-cols-3 gap-8'>
             <CardItem />
             <CardItem />
             <CardItem />

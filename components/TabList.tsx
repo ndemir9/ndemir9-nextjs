@@ -20,7 +20,7 @@ const TabList = () => {
     return (
         <div id='customTab' className='container'>
             <div id='customTabBtn' className='flex justify-center'>
-                <div className='bg-zinc-800 rounded-sm px-2 py-2 inline-block'>
+                <div className='dark:bg-zinc-800 rounded-sm px-2 py-2 inline-block defaultShadow'>
                     {
                         _tabs.map((item) => (
                             <Button className='px-6' key={item.id} onClick={() => handleTabsBtn(item.name)} variant={

@@ -6,7 +6,7 @@
 
 :root {
   /* @apply hover:text-primary bu kod çalışmadığı için manuel atadım. */
-  --text-primary-hex: 346.8 77.2% 49.8%;
+  --text-primary-hex: #e11d48;
 
 }
 
@@ -92,11 +92,19 @@
   ::selection {
     @apply text-primary bg-white
   }
+
+  .defaultShadow {
+    @apply transition duration-300
+  }
+
+  .defaultShadow:hover {
+    @apply transition duration-300 shadow-fullCorner shadow-[#e11d48]/25
+  }
 }
 
 
 a:hover {
-  color: hsl(var(--text-primary-hex));
+  color: var(--text-primary-hex);
 }
 
 .socialLinkItemSize {
