@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { DataMyDesc } from '@/utils/constants';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { motion } from "framer-motion"
+import NullReactFragment from './NullReactFragment';
 
 const MyDesc = () => {
     let desc = DataMyDesc;
@@ -13,13 +14,13 @@ const MyDesc = () => {
 
     const handleReadMoreBtn = () => {
         setIsTruncate(!isTruncate);
-        setReadMoreBtnText(isTruncate ? "read more" : "read less");
+        setReadMoreBtnText(isTruncate ? "read less" : "read more");
     };
 
-    if (!desc) return null;
+    if (!desc) return <NullReactFragment />
 
     return (
-        <div className='container'>
+        <div className='container mb-4'>
             <p
                 id='mydesc'
                 className={`width-[94%] max-w-[768px] 

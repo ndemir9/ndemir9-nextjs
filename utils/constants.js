@@ -1,5 +1,4 @@
 import BlogComponent from "@/components/TabItem/BlogComponent";
-import PraticesComponent from "@/components/TabItem/PraticesComponent";
 import ProjectComponent from "@/components/TabItem/ProjectComponent";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { nanoid } from "nanoid"
@@ -69,11 +68,6 @@ export const tabsData = [
         id: nanoid(),
         name: "Projects",
         component: <ProjectComponent />
-    },
-    {
-        id: nanoid(),
-        name: "Pratices",
-        component: <PraticesComponent />
     }
 ]
 

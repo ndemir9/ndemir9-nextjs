@@ -1,15 +1,23 @@
 import React from 'react'
 import CardList from '../CardList'
 import { Button } from '../ui/button'
+import CardItem from '../CardItem'
 
 const BlogComponent = () => {
+
+  let seeAllBtn: React.JSX.Element = <Button className='px-20 py-10' variant="link">see all</Button>
+
   return (
-    <div>
-      <CardList />
+    <>
+      <CardList>
+        <CardItem />
+        <CardItem />
+        <CardItem />
+      </CardList>
       <div className='text-center'>
-        <Button className='px-20 py-10' variant="link">see all</Button>
+        {seeAllBtn}
       </div>
-    </div >
+    </>
   )
 }
 

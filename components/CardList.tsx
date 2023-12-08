@@ -1,13 +1,18 @@
 import React from 'react'
-import CardItem from './CardItem'
 
-const CardList = () => {
+interface IProps {
+    children: React.ReactNode,
+    colItemCount?: string
+}
+
+const CardList = ({ children, colItemCount }: IProps) => {
+
+    let gridcolClass: string;
+    if (colItemCount) gridcolClass = "lg:grid-cols-" + colItemCount
+    else gridcolClass = "lg:grid-cols-3"
+
     return (
-        <div className='grid lg:grid-cols-3 gap-8'>
-            <CardItem />
-            <CardItem />
-            <CardItem />
-        </div>
+        <div className={`grid gap-8 ${gridcolClass}`}>{children}</div>
     )
 }
 

@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { DataCurrentTabId, tabsData } from '@/utils/constants'
+import NullReactFragment from './NullReactFragment'
+import { motion, AnimatePresence } from "framer-motion";
 
 const TabList = () => {
 
@@ -15,12 +17,12 @@ const TabList = () => {
         setCurrentTabId(currentId)
     }
 
-    if (_tabs.length <= 0) return <></>
+    if (_tabs.length <= 0) return <NullReactFragment />
 
     return (
         <div id='customTab' className='container'>
             <div id='customTabBtn' className='flex justify-center'>
-                <div className='dark:bg-zinc-800 rounded-sm px-2 py-2 inline-block defaultShadow'>
+                <div className='dark:bg-zinc-800 bg-slate-200 rounded-sm p-2 defaultShadow flex gap-2'>
                     {
                         _tabs.map((item) => (
                             <Button className='px-6' key={item.id} onClick={() => handleTabsBtn(item.name)} variant={
@@ -31,13 +33,23 @@ const TabList = () => {
                 </div>
             </div>
             <div id='customTabContent'>
-                {
-                    _tabs.map((item) => (
-                        <React.Fragment key={item.id}>
-                            {item.name == currentTabId && <div className='py-10'>{item.component}</div>}
-                        </React.Fragment>
-                    ))
-                }
+                <AnimatePresence>
+                    <motion.div
+                        key={_currentTabId && currentTabId}
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -30, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {
+                            _tabs.map((item) => (
+                                <React.Fragment key={item.id}>
+                                    {item.name == currentTabId && <div className='py-10'>{item.component}</div>}
+                                </React.Fragment>
+                            ))
+                        }
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </div>
     )
